@@ -1,0 +1,36 @@
+﻿title,citation,tissues
+Bulk tissue cell type deconvolution with multi-subject single-cell expression reference,Wang et al 2019,pancreas
+Benchmarking of cell type deconvolution pipelines for transcriptomics data,Cobos et al 2020,pancreas;blood;kidney
+MuSiC2: cell type deconvolution for multi-condition bulk RNA-seq data,Fan et al 2022,pancreas
+Strategies for cellular deconvolution in human brain RNA,Sosina et al 2022,brain
+Comprehensive evaluation of transcriptome-based cell-type quantification methods for immuno-oncology,Sturm et al 2019,tumor;immune_cell;blood
+A benchmark for RNA-seq deconvolution analysis under dynamic testing environments,Jin and Liu 2021,blood;immune_cell;
+Comprehensive evaluation of deconvolution methods for human brain gene expression,Sutton et al 2022,brain;pancreas;heart
+SCDC: bulk gene expression deconvolution by multiple single-cell RNA sequencing references,Dong et al 2021,fibroblast;breast;pancreas
+Accurate estimation of cell composition in bulk expression through robust integration of single-cell information,Jew et al 202,adipose;brain
+Simultaneous enumeration of cancer and immune cell types from bulk tumor gene expression data,Racle et al 2017,tumor;immune_cell;blood
+RNA-Seq Signatures Normalized by mRNA Abundance Allow Absolute Deconvolution of Human Immune Cell Types,Monaco et al 2019,blood;immune_cell
+Deconvolution of human Brain cell Type Transcriptomes Unraveled Microglia-specific Potential Biomarkers,Ayana et al 2018,brain;stem_cells
+Gene expression imputation and cell-type deconvolution in human brain with spatiotemporal precision and its implications for brain-related disorders,Pei et al 2021,brain
+A reference profile-free deconvolution method to infer cancer cell-intrinsic subtypes and tumor-type-specific stromal profiles,Wang et al 2020,tumor
+Deep learning–based cell composition analysis from tissue expression profiles,Menden et al 202,blood;pancreas;brain
+CDSeq: Anovel complete deconvolution method for dissecting heterogeneous samples using gene expression data,Kang et al 2019,tumor;breast;blood;lung;umbilical_vein;liver;brain
+The Gene Expression Deconvolution Interactive Tool (GEDIT): accurate cell type quantification from gene expression data,Nadel et al 2021,blood;stroma;immune_cell
+Determining cell type abundance and expression from bulk tissues with digital cytometry,Newman et al 2019,tumor;blood;immune_cell
+Cell type and gene expression deconvolution with BayesPrism enables Bayesian integrative analysis across bulk and single-cell RNA sequencing in oncology,Chu et al 2022,tumor;blood;immune_cell;brain
+Robust enumeration of cell subsets from tissue expression profiles,Newman et al 2015,blood;tumor
+dtangle: accurate and robust cell type deconvolution,Hunt et al 2019,blood;breast;brain;liver;lung;muscle;tumor
+DeconRNASeq: a statistical framework for deconvolution of heterogeneous tissue samples based on mRNA-Seq data,Gong and Szustakowski 2013,brain;heart;skeletal_muscle;lung;liver
+xCell: digitally portraying the tissue cellular heterogeneity landscape,Aran et al 2017,immune_cell;stem_cell;epithelium;tumor
+"Inference of cell type content from human brain transcriptomic datasets illuminates the effects of age, manner of death, dissection, and psychiatric diagnosis",Hagenauer et al 2018,brain;immune_cells;stem_cell;blood
+Estimating the population abundance of tissue-infiltrating immune and stromal cell populations using gene expression,Becht et al 2016,immune_cell;stroma;tumor
+Molecular and pharmacological modulators of the tumor immune contexture revealed by deconvolution of RNA-seq data,Finotello et al 2019,tumor;blood
+Comprehensive analyses of tumor immunity: implications for cancer immunotherapy,Li et al 2016,tumor
+Digital cell quantification identifies global immune cell dynamics during influenza infection,Altboum et al 2014,lung;immune_cell
+Fast and robust deconvolution of tumor infiltrating lymphocyte from expression profiles using least trimmed squares,Hao et al 2019,tumor;immune_cell
+Advances in mixed cell deconvolution enable quantification of cell types in spatial transcriptomic data,Danaher et al 2022,brain;colon;decidua;esophagus;gut;heart;ileum;immune_cell;tumor;kidney;liver;lung;muscle;pancreas;placenta;rectum;retina;skin;spleen
+Reference-free cell type deconvolution of multi-cellular pixel-resolution spatially resolved transcriptomics data,Miller et al 2022,brain;breast;olfactory_bulb;tumor;embryo
+Benchmarking and integration of methods for deconvoluting spatial transcriptomic data,Yan and Sun 2022,brain;embryo;heart;
+SpaDecon: cell-type deconvolution in spatial transcriptomics with semi-supervised learning,Coleman et al 2023,brain;breast;tumor;pancreas;stroma
+"Spatially informed clustering, integration, and deconvolution of spatial transcriptomics with GraphST",Long et al 2023,heart;liver;muscle;epidermis;meninges;brain;tumor;olfactory_bulb
+EnDecon: cell type deconvolution of spatially resolved transcriptomics data via ensemble learning,Tu et al 2023,pancreas;tumor;brain;breast
