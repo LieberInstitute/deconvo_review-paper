@@ -62,6 +62,9 @@ rownames(hm.marker.table) <- paste0("marker", seq(nrow(hm.marker.table)))
 # make new heatmaps
 #------------------
 # gene expression across cells
+
+jpeg("hm_genes-cells.jpg", width = 5.5, height = 3.5, units = "in", res = 1000)
+
 Heatmap(hm.table,
         cluster_rows = F,
         cluster_columns = F,
@@ -73,8 +76,13 @@ Heatmap(hm.table,
         column_title = "Cells",
         show_heatmap_legend = F)
 
+dev.off()
+
 # marker expression across cells
 which.markers <- seq(51, 65)
+
+jpeg("hm_markers-cells.jpg", width = 5.5, height = 3.5, units = "in", res = 1000)
+
 Heatmap(hm.table[which.markers,],
         cluster_rows = F,
         cluster_columns = F,
@@ -86,7 +94,10 @@ Heatmap(hm.table[which.markers,],
         column_title = "Cells",
         show_heatmap_legend = F)
 
+dev.off()
+
 # marker expression by cell types
+jpeg("hm_markers-types.jpg", width = 1.5, height = 3.5, units = "in", res = 1000)
 Heatmap(hm.marker.table,
         cluster_rows = F,
         cluster_columns = F,
@@ -98,3 +109,5 @@ Heatmap(hm.marker.table,
         column_title = "Cell Types (K)",
         show_heatmap_legend = F,
         border = "black")
+
+dev.off()
