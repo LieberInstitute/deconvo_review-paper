@@ -1,9 +1,20 @@
+#!/usr/bin/env R
+
+# Author: Sean Maden
+#
+# Plots of tissue by deconvolution reference.
+#
+
 library(ggplot2)
 library(dplyr)
 library(scales)
 
-csv.name <- "decon-studies-tissues.csv"
-csv <- read.csv(csv.name)
+#----------
+# load data
+#----------
+csv.name <- "table-s1_tissue-references.csv"
+csv.path <- file.path("deconvo_commentary-paper", "data", csv.name)
+csv <- read.csv(csv.path)
 
 #------------
 # format data
@@ -29,7 +40,7 @@ tx.counts.table <- do.call(rbind, tx.counts.list) %>% as.data.frame()
 colnames(tx.counts.table) <- "references"
 tx.counts.table$tx <- unique.tissues
 
-# plot
+# get plot data
 plot.data <- tx.counts.table
 plot.data$references <- as.numeric(plot.data$references)
 ref.order <- order(plot.data$references) %>% rev()
@@ -37,9 +48,18 @@ ref.levels <- plot.data$tx[ref.order]
 plot.data$tx <- factor(plot.data$tx, levels = ref.levels)
 plot.data <- plot.data[seq(15),]
 
-ggplot(plot.data, aes(x = tx, y = references)) + 
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+# save new plot
+
+jpeg("barplot_refs-by-tissues.jpg", width = 4, height = 2.5, units = "in", res = 600)
+
+ggplot(plot.data, aes(x = tx, y = references)) + theme_bw() +
+  geom_bar(stat = "identity") + 
+  geom_text(aes(label = references), vjust = -0.2) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ylab("References") + xlab("Tissue") +
+  ylim(0, 38)
+
+dev.off()
 
 #------------------------
 # cumulative refs by year
@@ -70,11 +90,18 @@ df.cumul <- df.cumul[df.cumul$tx %in% tx.filter,]
 df.cumul$year <- as.integer(df.cumul$year)
 df.cumul$Tissue <- df.cumul$tx
 
+# save new plot
+
+jpeg("lineplot_cumulative-refs-by-tissue.jpg", width = 5, height = 2.5, 
+     units = "in", res = 600)
+
 ggplot(df.cumul, aes(x = year, y = references, 
                      color = Tissue, shape = Tissue, lty = Tissue)) + theme_bw() + 
-  geom_point(size = 2) + geom_line(size = 1) + 
+  geom_point(size = 2) + geom_line(linewidth = 0.5) + 
   scale_x_continuous(breaks=pretty_breaks()) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  xlab("Year") + ylab("References")
+  xlab("Year") + ylab("Cumulative references")
+
+dev.off()
 
 
