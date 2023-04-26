@@ -1,7 +1,19 @@
+#!/usr/bin/env R
+
+# Author: Sean Maden
+#
+# Heatmaps for main figure summarizing deconvolution.
+#
+#
+
 library(ComplexHeatmap)
 
 set.seed(0)
 
+#-----------------
+# simulate markers
+#-----------------
+# simulate cells by type
 # neuron data
 num.neuron <- 20
 neuron.data <- unlist(lapply(seq(num.neuron), function(index){
@@ -27,6 +39,7 @@ astro.data <- unlist(lapply(seq(num.astro), function(index){
     rpois(n = 5, lambda = 1))
 }))
 
+# make main heatmap table
 hm.data <- as.numeric(c(neuron.data, oligo.data, astro.data))
 hm.table <- matrix(hm.data, nrow = 65)
 colnames(hm.table) <- c(paste0("Neuron", seq(num.neuron)),
@@ -34,7 +47,21 @@ colnames(hm.table) <- c(paste0("Neuron", seq(num.neuron)),
                         paste0("Astrocyte", seq(num.astro)))
 rownames(hm.table) <- paste0("gene", seq(nrow(hm.table)))
 
+# make marker heatmap table
+cell.types <- c("Neuron", "Oligodendrocyte", "Astrocyte")
+which.markers <- seq(51, 65)
+hm.marker.list <- lapply(cell.types, function(type){
+  rowMeans(hm.table[which.markers,
+                    grepl(type, colnames(hm.table))])
+})
+hm.marker.table <- do.call(cbind, hm.marker.list)
+colnames(hm.marker.table) <- cell.types
+rownames(hm.marker.table) <- paste0("marker", seq(nrow(hm.marker.table)))
 
+#------------------
+# make new heatmaps
+#------------------
+# gene expression across cells
 Heatmap(hm.table,
         cluster_rows = F,
         cluster_columns = F,
@@ -46,6 +73,7 @@ Heatmap(hm.table,
         column_title = "Cells",
         show_heatmap_legend = F)
 
+# marker expression across cells
 which.markers <- seq(51, 65)
 Heatmap(hm.table[which.markers,],
         cluster_rows = F,
@@ -58,16 +86,7 @@ Heatmap(hm.table[which.markers,],
         column_title = "Cells",
         show_heatmap_legend = F)
 
-cell.types <- c("Neuron", "Oligodendrocyte", "Astrocyte")
-which.markers <- seq(51, 65)
-hm.marker.list <- lapply(cell.types, function(type){
-  rowMeans(hm.table[which.markers,
-                    grepl(type, colnames(hm.table))])
-})
-hm.marker.table <- do.call(cbind, hm.marker.list)
-colnames(hm.marker.table) <- cell.types
-rownames(hm.marker.table) <- paste0("marker", seq(nrow(hm.marker.table)))
-
+# marker expression by cell types
 Heatmap(hm.marker.table,
         cluster_rows = F,
         cluster_columns = F,
