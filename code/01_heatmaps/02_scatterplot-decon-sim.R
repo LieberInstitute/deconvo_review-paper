@@ -83,7 +83,10 @@ new.plot <- ggplot(tsim, aes(x = p.true, y = value,
   theme_bw() + xlim(0, 1) + ylim(0, 1) +
   xlab("Truth") + ylab("Prediction") +
   stat_ellipse() + facet_wrap(~cell.scale.factor) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_color_manual(values = c("#db6b00",
+                                "#6db100",
+                                "#dbc700"))
 
 
 plot.name <- "scatterplot_panel_truth-vs-pred.jpg"
