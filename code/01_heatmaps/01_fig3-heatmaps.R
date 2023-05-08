@@ -15,7 +15,7 @@ set.seed(0)
 #-----------------
 # simulate cells by type
 # neuron data
-num.neuron <- 20
+num.neuron <- 5
 neuron.data <- unlist(lapply(seq(num.neuron), function(index){
   c(rpois(n = 50, lambda = sample(c(1, 5, 20), 100, replace = T)),
     rpois(n = 5, lambda = 1),
@@ -23,7 +23,7 @@ neuron.data <- unlist(lapply(seq(num.neuron), function(index){
     rpois(n = 5, lambda = 10))
 }))
 # oligo data
-num.oligo <- 11
+num.oligo <- 2
 oligo.data <- unlist(lapply(seq(num.oligo), function(index){
   c(rpois(n = 50, lambda = sample(c(1, 2, 12), 100, replace = T)),
     rpois(n = 5, lambda = 1),
@@ -31,7 +31,7 @@ oligo.data <- unlist(lapply(seq(num.oligo), function(index){
     rpois(n = 5, lambda = 1))
 }))
 # astro data
-num.astro <- 4
+num.astro <- 2
 astro.data <- unlist(lapply(seq(num.astro), function(index){
   c(rpois(n = 50, lambda = sample(c(2, 5, 7), 100, replace = T)),
     rpois(n = 5, lambda = 10),
@@ -58,12 +58,15 @@ hm.marker.table <- do.call(cbind, hm.marker.list)
 colnames(hm.marker.table) <- cell.types
 rownames(hm.marker.table) <- paste0("marker", seq(nrow(hm.marker.table)))
 
+# save environment
+save.image(file='./deconvo_commentary-paper/output/fig4_data.RData')
+
 #------------------
 # make new heatmaps
 #------------------
 # gene expression across cells
 
-jpeg("hm_genes-cells.jpg", width = 5.5, height = 3.5, units = "in", res = 1000)
+jpeg("hm_genes-cells.jpg", width = 3, height = 5, units = "in", res = 1000)
 
 Heatmap(hm.table,
         cluster_rows = F,
@@ -81,7 +84,7 @@ dev.off()
 # marker expression across cells
 which.markers <- seq(51, 65)
 
-jpeg("hm_markers-cells.jpg", width = 5.5, height = 3.5, units = "in", res = 1000)
+jpeg("hm_markers-cells.jpg", width = 2, height = 3, units = "in", res = 1000)
 
 Heatmap(hm.table[which.markers,],
         cluster_rows = F,
@@ -96,8 +99,10 @@ Heatmap(hm.table[which.markers,],
 
 dev.off()
 
+heatmap(hm.table[which.markers,])
+
 # marker expression by cell types
-jpeg("hm_markers-types.jpg", width = 1.5, height = 3.5, units = "in", res = 1000)
+jpeg("hm_markers-types.jpg", width = 1.5, height = 3, units = "in", res = 1000)
 Heatmap(hm.marker.table,
         cluster_rows = F,
         cluster_columns = F,

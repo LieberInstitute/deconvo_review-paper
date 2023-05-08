@@ -56,7 +56,7 @@ ggplot(plot.data, aes(x = tx, y = references)) + theme_bw() +
   geom_bar(stat = "identity") + 
   geom_text(aes(label = references), vjust = -0.2) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  ylab("References") + xlab("Tissue") +
+  ylab("Literature references") + xlab("Tissue") +
   ylim(0, 38)
 
 dev.off()
@@ -100,7 +100,7 @@ ggplot(df.cumul, aes(x = year, y = references,
   geom_point(size = 2) + geom_line(linewidth = 0.5) + 
   scale_x_continuous(breaks=pretty_breaks()) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  xlab("Year") + ylab("Cumulative references")
+  xlab("Year") + ylab("Cumulative literature\nreferences")
 
 dev.off()
 
