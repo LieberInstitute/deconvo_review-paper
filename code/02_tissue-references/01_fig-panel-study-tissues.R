@@ -95,8 +95,9 @@ df.cumul$Tissue <- df.cumul$tx
 jpeg("lineplot_cumulative-refs-by-tissue.jpg", width = 5, height = 2.5, 
      units = "in", res = 600)
 
-ggplot(df.cumul, aes(x = year, y = references, 
-                     color = Tissue, shape = Tissue, lty = Tissue)) + theme_bw() + 
+ggplot(df.cumul, 
+       aes(
+         x = year, y = references, shape = Tissue, lty = Tissue)) + theme_bw() + 
   geom_point(size = 2) + geom_line(linewidth = 0.5) + 
   scale_x_continuous(breaks=pretty_breaks()) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
