@@ -2,7 +2,7 @@
 
 This ReadMe is for the following commentary paper:
 
-Sean K. Maden, Sang Ho Kwon, Louise A. Huuki-Myers, Leonardo Collado-Torres, Stephanie C. Hicks, Kristen R. Maynard. "Challenges and opportunities to computationally deconvolve heterogeneous tissue with varying cell sizes using single cell RNA-sequencing datasets." (2023)_arRxiv_ (DOI: [10.48550/arXiv.2305.06501](https://doi.org/10.48550/arXiv.2305.06501)).
+Sean K. Maden, Sang Ho Kwon, Louise A. Huuki-Myers, Leonardo Collado-Torres, Stephanie C. Hicks, Kristen R. Maynard. "Challenges and opportunities to computationally deconvolve heterogeneous tissue with varying cell sizes using single cell RNA-sequencing datasets." (2023) _arRxiv_ (DOI: [10.48550/arXiv.2305.06501](https://doi.org/10.48550/arXiv.2305.06501)).
 
 # Contents
 
