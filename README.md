@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/543282025.svg)](https://zenodo.org/doi/10.5281/zenodo.10085496)
+
 # Citation
 
 This ReadMe is for the following commentary paper:
