@@ -9,7 +9,7 @@ libv <- c("lute", "reshape2", "ggplot2", "dplyr")
 sapply(libv, library, character.only = T)
 
 # load
-env.path <- './deconvo_commentary-paper/output/fig4_data.RData'
+env.path <- './deconvo_review-paper/output/fig4_data.RData'
 load(file=env.path)
 
 
